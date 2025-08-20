@@ -29,7 +29,9 @@ export function Login (){
 
     async function handleLoginSubmit(data:LoginSchema){
         try {
+            console.log("Logando")
             await auth.signIn(data.email,data.password);   
+            console.log("Depois de logar")
             navigate("/");
         } catch (error) {
             console.log(error);
