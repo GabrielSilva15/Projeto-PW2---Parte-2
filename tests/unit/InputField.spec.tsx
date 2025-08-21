@@ -6,11 +6,7 @@ import { InputField } from "../../src/components/InputField/InputField";
 describe("<InputField />", () => {
   it("Renderiza o input e o label corretamente", () => {
     render(<InputField name="username" label="Usuário" />);
-
-    // label aparece
     expect(screen.getByText("Usuário")).toBeDefined();
-
-    // input aparece
     expect(screen.getByRole("textbox")).toBeDefined();
   });
 

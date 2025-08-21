@@ -49,6 +49,8 @@ test.describe("Testes E2E da página de Login", () => {
 
     await page.getByRole("button", { name: /entrar/i }).click();
 
-    await expect(page.getByText(/Credenciais incorretas. Tente novamente./i)).toBeVisible();
+    await expect(
+      page.getByText(/Credenciais incorretas. Tente novamente./i)
+    ).toBeVisible();
   });
 });
