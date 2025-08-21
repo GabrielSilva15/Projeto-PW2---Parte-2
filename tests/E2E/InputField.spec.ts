@@ -31,8 +31,8 @@ test.describe("Testes E2E da página de Login", () => {
   test("Deve realizar login com sucesso", async ({ page }) => {
     await page
       .getByPlaceholder("Digite seu e-mail...")
-      .fill("usuario@teste.com");
-    await page.getByPlaceholder("Insira sua senha...").fill("senha123");
+      .fill("teste123@gmail.com");
+    await page.getByPlaceholder("Insira sua senha...").fill("123456");
 
     await page.getByRole("button", { name: /entrar/i }).click();
 
@@ -44,11 +44,11 @@ test.describe("Testes E2E da página de Login", () => {
   }) => {
     await page
       .getByPlaceholder("Digite seu e-mail...")
-      .fill("usuario@teste.com");
+      .fill("teste123@gmail.com");
     await page.getByPlaceholder("Insira sua senha...").fill("errada");
 
     await page.getByRole("button", { name: /entrar/i }).click();
 
-    await expect(page.getByText(/credenciais incorretas/i)).toBeVisible();
+    await expect(page.getByText(/Credenciais incorretas. Tente novamente./i)).toBeVisible();
   });
 });

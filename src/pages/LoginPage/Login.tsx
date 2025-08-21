@@ -36,9 +36,12 @@ export function Login() {
   async function handleLoginSubmit(data: LoginSchema) {
     try {
       console.log("Logando");
-      await auth.signIn(data.email, data.password);
-      console.log("Depois de logar");
-      navigate("/");
+      const response = await auth.signIn(data.email, data.password);
+      if(response){
+        navigate("/");
+        return;
+      }
+      throw Error("Credenciais incorretas. Tente novamente.")
     } catch (error) {
       setLoginError("Credenciais incorretas. Tente novamente.");
     }
