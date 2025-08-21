@@ -1,47 +1,65 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { CardEvento } from "../../src/components/CardEvento";
-import moment from "moment";
 import React from "react";
+import { InputField } from "../../src/components/InputField/InputField";
 
-// URL de fallback usada no componente
-const image =
-  "https://cdn0.casamentos.com.br/vendor/3872/3_2/960/jpeg/whatsapp-image-2018-07-27-at-10-51-32-19_13_123872.jpeg";
+describe("<InputField />", () => {
+  it("Renderiza o input e o label corretamente", () => {
+    render(<InputField name="username" label="Usuário" />);
 
-describe("<CardEvento />", () => {
-  it("Renderiza título, endereço e data formatada corretamente", () => {
-    const props = {
-      title: "Aniversário de Ponteiro",
-      endereco: "Algum lugar de Sousa, 0",
-      data: "01012025",
-      imagem:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ89B0PHWe-tdpjhRnU1vRvd9GS_Jux4N1Zw&s",
-    };
+    // label aparece
+    expect(screen.getByText("Usuário")).toBeDefined();
 
-    render(<CardEvento {...props} />);
-
-    expect(screen.getByText(props.title)).toBeDefined();
-
-    expect(screen.getByText(props.endereco)).toBeDefined();
-
-    const dataFormatada = moment(props.data, "DDMMYYYY").format("DD/MM/YYYY");
-    expect(screen.getByText(dataFormatada)).toBeDefined();
-
-    const img = screen.getByRole("img") as HTMLImageElement;
-    expect(img.src).toBe(props.imagem);
+    // input aparece
+    expect(screen.getByRole("textbox")).toBeDefined();
   });
 
-  it("Usa a imagem default caso quando não recebe a prop da mesma", () => {
-    const props = {
-      title: "Evento Sem Imagem",
-      endereco: "Av. Sem Foto, 123",
-      data: "02022025",
-    };
+  it("Aplica o tipo passado na prop 'type'", () => {
+    render(<InputField name="password" label="Senha" type="password" />);
 
-    render(<CardEvento {...props} />);
+    const input = document.querySelector(
+      "input[name='password']"
+    ) as HTMLInputElement;
 
-    // Deve pegar o <img> e checar a src
-    const img = screen.getByRole("img") as HTMLImageElement;
-    expect(img.src).toBe(image);
+    expect(input.type).toBe("password");
+  });
+
+  it("Aceita e exibe valor passado na prop 'value'", () => {
+    render(
+      <InputField
+        name="email"
+        label="Email"
+        value="teste@teste.com"
+        onChange={() => {}}
+      />
+    );
+
+    const input = screen.getByDisplayValue(
+      "teste@teste.com"
+    ) as HTMLInputElement;
+    expect(input.value).toBe("teste@teste.com");
+  });
+
+  it("Permite passar placeholder corretamente", () => {
+    render(
+      <InputField
+        name="telefone"
+        label="Telefone"
+        placeholder="Digite seu telefone"
+      />
+    );
+
+    const input = screen.getByPlaceholderText(
+      "Digite seu telefone"
+    ) as HTMLInputElement;
+    expect(input).toBeDefined();
+  });
+
+  it("Permite usar props do input como 'required' ou 'disabled'", () => {
+    render(<InputField name="nome" label="Nome" required disabled />);
+
+    const input = screen.getByRole("textbox") as HTMLInputElement;
+    expect(input.required).toBe(true);
+    expect(input.disabled).toBe(true);
   });
 });
