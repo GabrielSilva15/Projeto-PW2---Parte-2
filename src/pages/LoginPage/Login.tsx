@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { api } from "../../services/api";
-import "./login.css";
+import { PageLogin, BoxLogin, HeadLogin, SubtitleLogin, FormLogin, Logo} from "./styled";
+import logo from "../../Images/LOGO.png";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
@@ -49,21 +50,22 @@ export function Login() {
 
   return (
     <Container>
-      <div className="pageLogin">
-        <div className="boxLogin">
-          <div className="headLogin">
-            <span id="textLogin">Go Go Party's</span>
-          </div>
+      <PageLogin>
+        <BoxLogin>
+          <HeadLogin>
+            <Logo src={logo} alt="" />
+            {/* <span id="textLogin">Go Go Party's</span> */}
+          </HeadLogin>
 
-          <div className="subtitleLogin">
+          <SubtitleLogin>
             <span id="textLogin">Seja Bem-Vindo</span>
             <span id="subLogin">
               Realize seu login e esteja pronto para criar e gerenciar seus
               eventos
             </span>
-          </div>
+          </SubtitleLogin>
 
-          <form
+          <FormLogin
             onSubmit={handleSubmit(handleLoginSubmit)}
             className="formLogin"
           >
@@ -103,9 +105,9 @@ export function Login() {
             {loginError && <span className="errorMessage">{loginError}</span>}
 
             {/* <Button name="Botao de enviar"/> */}
-          </form>
-        </div>
-      </div>
+          </FormLogin>
+        </BoxLogin>
+      </PageLogin>
     </Container>
   );
 }

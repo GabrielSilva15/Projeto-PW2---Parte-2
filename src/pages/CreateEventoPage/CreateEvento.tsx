@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../../services/api";
 import {z} from "zod";
-import "./CreateEvento.css"
+import { PageCreateEvent, FormCreateEvento, DadosEvento, ErrorMessage } from "./styled";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { InputField } from "../../components/InputField/InputField";
@@ -73,43 +73,43 @@ export const CreateEvento = ()=>{
 
         <ContainerWrapper>
 
-            <div className="pageCreateEvent">
+            <PageCreateEvent>
                 Página de criar evento
 
-                <form  className="formCreateEvento" onSubmit={handleSubmit(createEvento)}>
-                                <div className="dadosEvento">
+                <FormCreateEvento  className="formCreateEvento" onSubmit={handleSubmit(createEvento)}>
+                                <DadosEvento>
                                             <InputField label="Titulo" type="text" {...register('title')} placeholder="Informe um título para seu evento..."  onChange={(e)=>setTitle(e.target.value)}/>
                                             {errors.title && <span>{errors.title.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Descrição" type="text" {...register('description')} placeholder="Informe uma descrição para seu evento..." onChange={(e)=>setDescription(e.target.value)}/>
                                             {errors.description && <span>{errors.description.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Endereço" type="text" {...register('endereco')} placeholder="Informe um endereço para seu evento..."  onChange={(e)=>setEndereco(e.target.value)}/>
                                             {errors.endereco && <span>{errors.endereco.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Horário" type="time" {...register('horario')} placeholder="Informe um horário para seu evento..."  onChange={((e)=>setHorario(e.target.value))}/>
                                             {errors.horario && <span>{errors.horario.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Num Participantes" type="text" {...register('quantPart')} placeholder="Informe uma quantidade de participantes para seu evento..."  onChange={((e)=>setQuantPart(e.target.value))}/>
                                             {errors.quantPart && <span>{errors.quantPart.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Data" type="date" {...register('data')}  onChange={(e)=>setData(e.target.value)}/>
                                             {errors.data && <span>{errors.data.message}</span>}
-                                </div>   
+                                </DadosEvento>   
                 
                                 <Button name="Criar evento"/>
-                            </form>
-            </div>
+                            </FormCreateEvento>
+            </PageCreateEvent>
         </ContainerWrapper>
     )
 }

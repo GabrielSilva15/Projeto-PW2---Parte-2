@@ -2,7 +2,8 @@ import { api } from "../../services/api"
 import { JSX, useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/Auth/AuthContext"
 import { Evento } from "../../types/evento"
-import "./CardEvento.css"
+import { CardWrapper, DadosEvento, ImgEvento, HeadEvent, TitleEvent, AdressEvent, DateEvent } from "./styled";
+
 import { useNavigate } from "react-router-dom"
 import { MdRestoreFromTrash } from 'react-icons/md';
 import { FiCalendar, FiMapPin  } from "react-icons/fi";
@@ -96,23 +97,23 @@ export const CardEvento = ({idEvento}:{idEvento:string})=>{
 
 
     return (
-            <li className="box-eventoDados" onClick={()=>dadosEventPage(idEvento)}>
-                <div className="dados-evento" >
-                    <img className="img-evento"  src={imageUrl}/>
-                    <div className="head-event">
-                        <span className="title-event">
+            <CardWrapper onClick={()=>dadosEventPage(idEvento)}>
+                <DadosEvento>
+                    <ImgEvento  src={imageUrl}/>
+                    <HeadEvent>
+                        <TitleEvent>
                             {evento?.title}
-                        </span>
-                        <span className="adress-event">
+                        </TitleEvent>
+                        <AdressEvent>
                             <IconWrapper icon={FiMapPin}/>
-                            {evento?.endereco}</span>
-                        <span className="date-event">
+                            {evento?.endereco}</AdressEvent>
+                        <DateEvent>
                             <IconWrapper icon={FiCalendar}/>
                             {data}
-                        </span>
-                    </div>
-                </div>
-            </li>
+                        </DateEvent>
+                    </HeadEvent>
+                </DadosEvento>
+            </CardWrapper>
 
     )
 }

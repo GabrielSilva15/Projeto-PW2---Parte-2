@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom"
+//import { Link } from "react-router-dom"
 import IconWrapper from "../Icon"
 import { FiLogOut } from "react-icons/fi";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { useContext } from "react";
-import { ItemList, NavBarList, NavBarWrapper } from "./styles";
+import { ItemList, NavBarList, NavBarWrapper, Logo, LogoContainer, BtnLogout } from "./styles";
+import logo from "../../Images/LOGO.png"
+import { NavLink } from "react-router-dom";
 
 
 export const NavBar = ()=>{
@@ -13,29 +15,33 @@ export const NavBar = ()=>{
     return (
         <>
             <NavBarWrapper>
+                <LogoContainer>
+                    <Logo src={logo} alt="" />
+                </LogoContainer>
+                
                 {token && 
                     <NavBarList className="rotas-logado">
                         <ItemList>
-                            <Link to="/">Home</Link>
+                            <NavLink to="/">Home</NavLink>
                         </ItemList> 
 
                         <ItemList>
-                            <Link to="/perfil">Perfil</Link>
+                            <NavLink to="/perfil">Perfil</NavLink>
                         </ItemList>
 
                         <ItemList>
-                            <Link to="/eventos">Eventos</Link>                        
+                            <NavLink to="/eventos">Eventos</NavLink>                        
                         </ItemList>
 
                         <ItemList>                        
-                            <Link to="/convites">Convites</Link>
+                            <NavLink to="/convites">Convites</NavLink>
                         </ItemList>
 
-                        <ItemList>                        
-                            <Link id="rota-logout" to="/login" onClick={signOut}>
+                        <BtnLogout>                        
+                            <NavLink id="rota-logout" to="/login" onClick={signOut}>
                                 <IconWrapper icon={FiLogOut}/>
-                            </Link>   
-                        </ItemList>
+                            </NavLink>   
+                        </BtnLogout>
                     </NavBarList>
                 }
             </NavBarWrapper>

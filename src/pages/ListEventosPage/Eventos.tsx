@@ -11,6 +11,7 @@ import IconWrapper from "../../components/Icon";
 import { useNavigate } from "react-router-dom";
 import { NavBar } from "../../components/NavBar/NavBar";
 import { Container } from "../../components/Container/Container";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Eventos = ()=>{
 
@@ -74,6 +75,7 @@ export const Eventos = ()=>{
                 <ToastContainer/>
 
             </div>
+            <Footer/>
         
         </Container>
     )

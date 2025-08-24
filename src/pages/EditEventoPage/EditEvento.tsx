@@ -6,7 +6,7 @@ import { Evento } from "../../types/evento";
 import {z} from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import "./EditEvento.css"
+import { PageEditEvent, FormEditEvento, DivImageEvent, DadosEvento, BtnRemoveEvent, Box, Popup } from "./styled";
 import IconWrapper from "../../components/Icon";
 import { MdRestoreFromTrash } from "react-icons/md";
 import { FiCamera } from "react-icons/fi";
@@ -163,16 +163,16 @@ export const EditEventPage = ()=>{
     return (
             <Container>
 
-                <div className="pageEditEvent">
+                <PageEditEvent>
                     {!evento && <span>Carregando...</span> }
 
                     {evento &&  
                         <>
                             <h2>Edição de Evento</h2>
                 
-                            <form  className="formEditEvento" onSubmit={handleSubmit(putEditEvento)}>
+                            <FormEditEvento  className="formEditEvento" onSubmit={handleSubmit(putEditEvento)}>
 
-                                <div className="divImageEvent">
+                                <DivImageEvent>
                                             <img src={imageUrl? imageUrl : "https://cdn0.casamentos.com.br/vendor/3872/3_2/960/jpeg/whatsapp-image-2018-07-27-at-10-51-32-19_13_123872.jpeg"} alt="" id="image-editUser"/>
                                             
                                             <label htmlFor="fileImage" >
@@ -198,42 +198,42 @@ export const EditEventPage = ()=>{
                                                 
                                                 
                                             }}/>
-                                </div>
+                                </DivImageEvent>
 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Titulo:" type="text" {...register('title')} value={title} onChange={(e)=>setTitle(e.target.value)}/>
                                             {errors.title && <span>{errors.title.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Descrição:" type="text" {...register('description')} value={description} onChange={(e)=>setDescription(e.target.value)}/>
                                             {errors.description && <span>{errors.description.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Endereço:" type="text" {...register('endereco')} value={endereco} onChange={(e)=>setEndereco(e.target.value)}/>
                                             {errors.endereco && <span>{errors.endereco.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Horário:" type="time" {...register('horario')} value={horario} onChange={((e)=>setHorario(e.target.value))}/>
                                             {errors.horario && <span>{errors.horario.message}</span>}
-                                </div>
+                                </DadosEvento>
             
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Num Participantes:" type="text" {...register('quantPart')} value={quantPart} onChange={((e)=>setQuantPart(e.target.value))}/>
                                             {errors.quantPart && <span>{errors.quantPart.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
-                                <div className="dadosEvento">
+                                <DadosEvento>
                                             <InputField label="Data:" type="date" {...register('data')} value={data} onChange={(e)=>setData(e.target.value)}/>
                                             {errors.data && <span>{errors.data.message}</span>}
-                                </div>
+                                </DadosEvento>
                 
                                 <Button name="Atualizar"/>
-                            </form>
+                            </FormEditEvento>
 
-                            <button className="btnRemoveEvent" onClick={()=>{
+                            <BtnRemoveEvent className="btnRemoveEvent" onClick={()=>{
                                 setOpenPopUp(true);
                                 const pageGlass = document.querySelector(".box") as HTMLElement;
                                 pageGlass.style.display = "block";
@@ -242,11 +242,11 @@ export const EditEventPage = ()=>{
                                 pageGlass?.classList.add("glassEdit");
                             }}>
                                         <IconWrapper icon={MdRestoreFromTrash} />
-                            </button>
+                            </BtnRemoveEvent>
 
-                            <div className="box">
+                            <Box>
                                 {openPopup &&
-                                            <div className="popup">
+                                            <Popup>
                                                 <p>Deseja realmente apagar este evento?</p>
                                                 <div>
                                                     <button onClick={async()=>{
@@ -260,12 +260,12 @@ export const EditEventPage = ()=>{
                                                         pageGlass?.classList.remove("glassEdit");    
                                                     }} className="btnRemove btn-no">Não</button>
                                                 </div>
-                                            </div>
+                                            </Popup>
                                 }
-                            </div>
+                            </Box>
                         </>
                     }
-                </div>
+                </PageEditEvent>
                
             
         </Container>

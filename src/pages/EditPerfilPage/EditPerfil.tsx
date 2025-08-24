@@ -1,5 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import "./EditPerfil.css";
+import { PageEditUser, FormEditUser, DivImageUser, DadosUser } from "./styled";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { api } from "../../services/api";
@@ -64,8 +64,8 @@ export const EditPerfil = ()=>{
             
             console.log(user);
             
-
-            if(userData.foto){
+            //Retornar aqui, erro de não retornar a foto
+          /*   if(userData.foto){
                 
                 const responseImage = await api.get("/user-image/"+user!.id,{
                     headers:{
@@ -77,7 +77,7 @@ export const EditPerfil = ()=>{
                 setImageUrl(URL.createObjectURL(responseImage.data));
                 setIsLoading(true);   
                 return;
-            }
+            } */
 
 
             setIsLoading(true);
@@ -167,10 +167,10 @@ export const EditPerfil = ()=>{
         <Container>
         
             <NavBar/>
-            <div className="pageEditUser">
+            <PageEditUser>
                 <h2>Edição de Perfil</h2>
-                {isLoading && <form  className="formEditUser" onSubmit={handleSubmit(putEditUser)}>
-                                <div  className="divImageUser">
+                {isLoading && <FormEditUser  className="formEditUser" onSubmit={handleSubmit(putEditUser)}>
+                                <DivImageUser>
                                             <img src={imageUrl? imageUrl : "https://img.freepik.com/premium-vector/free-vector-user-icon-simple-line_901408-588.jpg"} alt="" id="image-editUser"/>
                                             <label htmlFor="fileImage" >
                                                 <IconWrapper icon={FiCamera}/>  
@@ -190,44 +190,44 @@ export const EditPerfil = ()=>{
                                                 fileReader.readAsDataURL(e.target.files![0]);
                                                 }
                                                 }/>
-                                </div>
+                                </DivImageUser>
 
-                                <div className="dadosUser">
+                                <DadosUser>
                                             <span>Nome:</span>
                                             <InputField type="text" {...register('name')} value={name} onChange={(e)=>setName(e.target.value)}/>
                                             {errors.name && <span>{errors.name.message}</span>}
-                                </div>
+                                </DadosUser>
                 
-                                <div className="dadosUser">
+                                <DadosUser>
                                             <span>Email:</span>
                                             <InputField type="text" {...register('email')} value={email} onChange={(e)=>setEmail(e.target.value)}/>
                                             {errors.email && <span>{errors.email.message}</span>}
-                                </div>
+                                </DadosUser>
                 
-                                <div className="dadosUser">
+                                <DadosUser>
                                             <span>CPF:</span>
                                             <InputField type="text" {...register('cpf')} value={cpf} onChange={(e)=>setCpf(e.target.value)}/>
                                             {errors.cpf && <span>{errors.cpf.message}</span>}
-                                </div>
+                                </DadosUser>
                 
-                                <div className="dadosUser">
+                                <DadosUser>
                                             <span>Idade:</span>
                                             <InputField type="text" {...register('idade')} value={idade} onChange={((e)=>setIdade(e.target.value))}/>
                                             {errors.idade && <span>{errors.idade.message}</span>}
-                                </div>
+                                </DadosUser>
                 
-                                <div className="dadosUser">
+                                <DadosUser>
                                             <span>Telefone:</span>
                                             <InputField type="text" {...register('telefone')} value={telefone} onChange={((e)=>setTelefone(e.target.value))}/>
                                             {errors.telefone && <span>{errors.telefone.message}</span>}
-                                </div>
+                                </DadosUser>
                 
                 
                                 <Button name="Atualizar"/>
-                            </form>}
+                            </FormEditUser>}
                 {!isLoading && <p>Carregando dados...</p>}
                 
-            </div>
+            </PageEditUser>
         </Container>
     )
 }

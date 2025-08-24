@@ -1,5 +1,8 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import "./InfoEvento.css"
+import {
+  PageWrapper, CardEvento, EventoImage, DadosEvento, EventoTitle, EventoDate, EventoInfo, EditButton,
+  BoxConvites, SearchInput, BoxConvidados, ConvidadoWrapper, ConviteButton, GuestsTitle, ListaConvidados,
+  Convidado, BoxPresenca, PresencaText, PresencaStatus, MensagemInfo } from "./styled";
 import { api } from "../../services/api";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { AuthProvider } from "../../contexts/Auth/AuthProvider";
@@ -192,72 +195,72 @@ export const InfoEvento = ()=>{
 
             <NavBar/>
 
-            <div className="infoEventoPage">
+            <PageWrapper>
 
-                <div className="box-evento">
-                    <img id="image-info" src={imageEvento ? imageEvento : "data:image/jpeg;base64,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"} alt="" />
-                    <div className="dados-evento">
-                            <span>Título:{evento?.title}</span>
-                            <span>Data: {dataFormatted}</span>
-                            <span>Horario:{evento?.horario}</span>
-                            <span>Quantidade de participantes: {evento?.quantPart}</span>
-                    </div>
+                <CardEvento>
+                    <EventoImage src={imageEvento ? imageEvento : "data:image/jpeg;base64,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"} alt="" />
+                    <DadosEvento>
+                            <EventoTitle>Título:{evento?.title}</EventoTitle>
+                            <EventoDate>Data: {dataFormatted}</EventoDate>
+                            <EventoInfo>Horario:{evento?.horario}</EventoInfo>
+                            <EventoInfo>Quantidade de participantes: {evento?.quantPart}</EventoInfo>
+                    </DadosEvento>
 
-                    <button id="btn-editEvento" onClick={editEventPage}>
+                    <EditButton onClick={editEventPage}>
                         <IconWrapper icon={FiEdit}></IconWrapper>
-                    </button>
+                    </EditButton>
 
-                </div>
+                </CardEvento>
 
-                <div className="box-convites">
+                <BoxConvites>
 
-                    <input id="search-input" type="text" placeholder="Search..." onChange={listSearchUsers}/> 
+                    <SearchInput type="text" placeholder="Search..." onChange={listSearchUsers}/> 
 
-                    <div className="box-convidados">
+                    <BoxConvidados>
 
                         {listUsersSearched.length === 0 && 
                         
-                            <p>Pesquise um nome de um usuário para ser convidado...</p>
+                            <MensagemInfo>Pesquise um nome de um usuário para ser convidado...</MensagemInfo>
                         }
 
                         {listUsersSearched.map(guest=>
-                                <div className="convidado-wrapper">
+                                <ConvidadoWrapper>
                                     <CardConvidadoEvento id={guest.id}/>
-                                    <button id="btn-convidar" onClick={()=>inviteUser(guest.id)}>Convidar</button>
-                                </div>
+                                    <ConviteButton onClick={()=>inviteUser(guest.id)}>Convidar</ConviteButton>
+                                </ConvidadoWrapper>
                         )}
 
-                    </div>
+                    </BoxConvidados>
 
-                    <h2>Lista de Convidados</h2>
-
-
+                    <GuestsTitle>Lista de Convidados</GuestsTitle>
 
 
-                    <div className="lista-convidados">
+
+
+                    <ListaConvidados>
 
                         {listGuests.length == 0 && 
 
-                            <p>A lista de Convidados está vazia</p>
+                            <MensagemInfo>A lista de Convidados está vazia</MensagemInfo>
                         }
 
                         {listGuests.length > 0 && listGuests.map(guest=>
 
-                            <div className="convidado">
+                            <Convidado>
                                 <CardConvidadoEvento id={guest.convidadoId} />
-                                <div className="box-presenca" style={guest.presenca ? {backgroundColor:"#3aff5b"} : {backgroundColor:"#ff3a44"}} >
+                                <BoxPresenca presenca={guest.presenca} >
                                 
-                                    <span id="text-presenca">Presença</span>
-                                    <span id="presenca">{guest.presenca ? "Confirmada" : "Não Confirmada" }</span>
-                                </div>
-                            </div>
+                                    <PresencaText>Presença</PresencaText>
+                                    <PresencaStatus>{guest.presenca ? "Confirmada" : "Não Confirmada" }</PresencaStatus>
+                                </BoxPresenca>
+                            </Convidado>
                         
                             
                         )}
 
-                    </div>
-                </div>
-            </div>
+                    </ListaConvidados>
+                </BoxConvites>
+            </PageWrapper>
         </Container>
     )
 }

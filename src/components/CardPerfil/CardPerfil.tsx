@@ -1,10 +1,11 @@
 import { AuthContext } from "../../contexts/Auth/AuthContext"
 import { useContext, useEffect, useState } from "react"
 import { api } from "../../services/api";
-import "./CardPerfil.css"
+
 import IconWrapper from "../Icon";
 import { FiEdit, FiCamera } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { CardWrapper, EditButton, UserImage, DadosWrapper } from "./styled";
 
 export const CardPerfil = ()=>{
 
@@ -81,23 +82,26 @@ export const CardPerfil = ()=>{
     },[])
 
     return (
-            <div className="card-perfil">
-                <button className="btn-edit" onClick={navigateToEditUser}>
+            <CardWrapper>
+                <EditButton onClick={navigateToEditUser}>
                     <IconWrapper icon={FiEdit}/>
-                </button>
-                    <img alt="" id="image-user" src={imageUrl? imageUrl : "https://img.freepik.com/premium-vector/free-vector-user-icon-simple-line_901408-588.jpg"}/>
+                </EditButton>
+                    <UserImage 
+                        alt="Foto do usuário" 
+                        src={imageUrl ? imageUrl : "https://img.freepik.com/premium-vector/free-vector-user-icon-simple-line_901408-588.jpg"} 
+                    />
                 {/* <div className="img-box">
                     <label htmlFor='btn-editImage' >
                         <IconWrapper icon={FiCamera}/>
                     </label>
                     <input type="file" name="" id="btn-editImage" onChange={handleFileChange}/>
                 </div> */}
-                <div className="dados">
+                <DadosWrapper>
                     <span>Nome: {name}</span>
                     <span>E-mail: {email}</span>
                     <span>CPF: {cpf ? cpf : "Sem CPF"}</span>
                     <span>Idade: {idade}</span>
-                </div>
-            </div>
+                </DadosWrapper>
+            </CardWrapper>
     )
 }
