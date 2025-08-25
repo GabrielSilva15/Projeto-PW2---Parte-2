@@ -34,43 +34,10 @@ export const BannerLogo = styled.img`
   margin-bottom: 10px; /* espaço depois do logo */
 `;
 
-export const BannerSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 15px;
-  
-   &:not(:last-child) {
-    margin-bottom: 50px;
-  }
-`;
-
 export const BannerText = styled.p`
   color: #ffffffff;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
-  margin-bottom: 5px; /* Dá espaço entre texto e botão */
+  margin-top: 45px;
 `;
 
-export const BannerButton = styled.button`
-  background: #34c5ff;
-  border: 1px solid white;
-  color: white;
-
-  height: 50px;
-  width: 150px;
-  padding: 10px 10px;
-
-  border-radius: 15px;
-  cursor: pointer;
-
-  font-size: 20px;
-  margin-top: 10px;
-
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    background-color: white;
-    color: #00bfa6;
-  }
-`;

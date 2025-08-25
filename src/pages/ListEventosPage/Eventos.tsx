@@ -6,7 +6,7 @@ import { Evento } from "../../types/evento";
 import { MdRestoreFromTrash } from 'react-icons/md';
 import { FiPlusCircle } from "react-icons/fi";
 import { ToastContainer,toast } from "react-toastify";
-import "./Eventos.css"
+import "./styled.css"
 import IconWrapper from "../../components/Icon";
 import { useNavigate } from "react-router-dom";
 import { NavBar } from "../../components/NavBar/NavBar";
@@ -56,9 +56,8 @@ export const Eventos = ()=>{
                 <button className="btnAdd" onClick={()=>user!.organizador ? navigate("/create-evento") : toast.error("O usuário não tem permissão para criar eventos!")} >
                     <IconWrapper icon={FiPlusCircle}/>
                 </button>
-                
-                <h1>Eventos</h1>
 
+                <br/><br/>
 
                 {isLoading && eventos.length === 0 && <span>Não há eventos</span> }
 

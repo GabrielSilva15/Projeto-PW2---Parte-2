@@ -2,30 +2,39 @@
 import styled from "styled-components";
 
 export const PageEditEvent = styled.div`
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #1e1e2fc9;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  align-items: center;
 
   h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #00d4ff;
   }
 `;
 
 export const FormEditEvento = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
 
   span {
     color: red;
     font-size: 0.9rem;
   }
 `;
+
+
 
 export const DivImageEvent = styled.div`
   position: relative;
@@ -73,7 +82,7 @@ export const DadosEvento = styled.div`
   label {
     font-weight: 600;
     font-size: 1rem;
-    color: #333;
+    color: #ffffffff;
   }
 `;
 

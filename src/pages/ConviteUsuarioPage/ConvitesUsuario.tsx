@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import "./ConvitesUsuario.css";
+import { ConvitesPage, ConviteCard, BtnsConvite, BtnAceitar } from "./styled";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { api } from "../../services/api";
 import { NavBar } from "../../components/NavBar/NavBar";
 import { ContainerWrapper } from "../../components/Container/styled";
+import { Footer } from "../../components/Footer/Footer";
 
 export const ConvitesUsuario = ()=>{
 
@@ -59,32 +60,33 @@ export const ConvitesUsuario = ()=>{
     return (
         <ContainerWrapper>
             <NavBar/>
-            <div className="convites-page">
+            <ConvitesPage>
 
                 <h2>Convites</h2>
 
                 {listConvites.length === 0 && (
-                    <p>Você não foi convidado para nenhum evento ainda.</p>
+                    <p>Você ainda não foi convidado para nenhum evento.</p>
                 )}
 
                 {listConvites.length > 0 && listConvites.map((convite)=>
                 
                     (
-                        <div className="convites">
+                        <ConviteCard>
                             <p id="text-convite">Você foi convidado para o evento: {convite.nomeEvento}</p>
                             {convite.presenca === false && (
-                                <div className="btns-convite">
-                                    <button id="btn-aceitar" onClick={()=>acceptConvite(convite.eventId)}>Aceitar</button>
-                                </div>
+                                <BtnsConvite>
+                                    <BtnAceitar onClick={()=>acceptConvite(convite.eventId)}>Aceitar</BtnAceitar>
+                                </BtnsConvite>
                             )}
 
                             {convite.presenca === true && (
                                 <p id="text-confirmacao">Presença confirmada</p>
                             )}
-                        </div>
+                        </ConviteCard>
                     )
                 )}
-            </div>
+            </ConvitesPage>
+            <Footer/>
         </ContainerWrapper>
     )
 }

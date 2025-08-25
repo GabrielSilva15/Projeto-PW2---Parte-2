@@ -74,7 +74,7 @@ export const CreateEvento = ()=>{
         <ContainerWrapper>
 
             <PageCreateEvent>
-                Página de criar evento
+                <h2>Criar evento</h2>
 
                 <FormCreateEvento  className="formCreateEvento" onSubmit={handleSubmit(createEvento)}>
                                 <DadosEvento>

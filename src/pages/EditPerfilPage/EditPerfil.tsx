@@ -13,6 +13,7 @@ import { Button } from "../../components/Button/Button";
 import { InputField } from "../../components/InputField/InputField";
 import { NavBar } from "../../components/NavBar/NavBar";
 import { Container } from "../../components/Container/Container";
+import { Footer } from "../../components/Footer/Footer";
 
 export const EditPerfil = ()=>{
 
@@ -166,7 +167,7 @@ export const EditPerfil = ()=>{
     return (
         <Container>
         
-            <NavBar/>
+    
             <PageEditUser>
                 <h2>Edição de Perfil</h2>
                 {isLoading && <FormEditUser  className="formEditUser" onSubmit={handleSubmit(putEditUser)}>
@@ -228,6 +229,7 @@ export const EditPerfil = ()=>{
                 {!isLoading && <p>Carregando dados...</p>}
                 
             </PageEditUser>
+            
         </Container>
     )
 }

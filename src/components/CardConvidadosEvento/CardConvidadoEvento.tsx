@@ -4,7 +4,8 @@ import { AuthContext } from "../../contexts/Auth/AuthContext"
 import { AuthProvider } from "../../contexts/Auth/AuthProvider";
 import { User } from "../../types/user";
 
-import "./CardConvidadoEvento.css";
+import { ConvidadoWrapper, ConvidadoImage, ConvidadoNome } from "./styled";
+
 
 export const CardConvidadoEvento = ({id}:{id:string})=>{
     
@@ -83,10 +84,10 @@ export const CardConvidadoEvento = ({id}:{id:string})=>{
 
     return (
         <AuthProvider>
-            <div id="dados-convidados">
-                <img id="img-convidado" src={imageConvidado} alt="" />
-                <span>{convidado?.name}</span>
-            </div>
+            <ConvidadoWrapper>
+                <ConvidadoImage src={imageConvidado} alt="" />
+                <ConvidadoNome>{convidado?.name}</ConvidadoNome>
+            </ConvidadoWrapper>
         </AuthProvider>
     )
 }

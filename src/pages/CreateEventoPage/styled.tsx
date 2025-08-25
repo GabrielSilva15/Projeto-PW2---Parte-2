@@ -5,7 +5,7 @@ export const PageCreateEvent = styled.div`
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: #1e1e2fc9;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   display: flex;
@@ -15,7 +15,7 @@ export const PageCreateEvent = styled.div`
   h2 {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: #00d4ff;
     text-align: center;
   }
 `;

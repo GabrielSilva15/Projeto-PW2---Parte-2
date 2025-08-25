@@ -1,19 +1,26 @@
-import React from "react";
-import './Banner.css';
-import logo from "../../Images/LOGO.png"
+import { BannerWrapper, BannerContent, BannerLogo, BannerText, BannerButton, BannerSection } from "./styled";
+import logo from "../../Images/LOGO.png";
+import { useNavigate } from "react-router-dom";
 
-const Banner: React.FC = () => {
-    return (
-        <section className="Banner">
-            <div className="banner-transparente">
-                <img id="logo-banner" src={logo} alt="Logo" />
-                <p id="texto-banner">Já possui conta? Crie seu evento agora mesmo!</p>
-                <button className="criar-evento">Entrar</button>
-                <p id="texto-banner">Não é usuário? Cadastre-se!</p>
-                <button className="criar-evento">Cadastrar</button>
-            </div>
-        </section>
-    );
+export const Banner = () => {
+  const navigate = useNavigate();
+
+  return (
+    <BannerWrapper>
+      <BannerContent>
+        <BannerLogo src={logo} alt="Logo" />
+
+        <BannerSection>
+          <BannerText>Já possui conta? Crie seu evento agora mesmo!</BannerText>
+          <BannerButton onClick={() => navigate("/login")} >Entrar</BannerButton>
+        </BannerSection>   
+
+        <BannerSection>
+          <BannerText>Não é usuário? Cadastre-se!</BannerText>
+          <BannerButton onClick={() => navigate("/cadastro")} >Cadastrar</BannerButton>
+        </BannerSection>     
+        
+      </BannerContent>
+    </BannerWrapper>
+  );
 };
-
-export default Banner;

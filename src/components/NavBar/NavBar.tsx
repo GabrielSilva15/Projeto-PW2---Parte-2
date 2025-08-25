@@ -38,7 +38,7 @@ export const NavBar = ()=>{
                         </ItemList>
 
                         <BtnLogout>                        
-                            <NavLink id="rota-logout" to="/login" onClick={signOut}>
+                            <NavLink id="rota-logout" to="/" onClick={signOut}>
                                 <IconWrapper icon={FiLogOut}/>
                             </NavLink>   
                         </BtnLogout>

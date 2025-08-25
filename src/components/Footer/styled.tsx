@@ -10,13 +10,13 @@ export const FooterWrapper = styled.footer`
   justify-content: center;
   align-items: center;
 
-   position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 999; /* garante que fica acima de outros elementos */
+  
+  bottom: 0;
+  left: 0;
+  z-index: 999; /* garante que fica acima de outros elementos */
 
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 `;
 
 export const FooterContent = styled.div`

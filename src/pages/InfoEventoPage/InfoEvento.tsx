@@ -14,6 +14,7 @@ import { FiEdit } from "react-icons/fi";
 import IconWrapper from "../../components/Icon";
 import { NavBar } from "../../components/NavBar/NavBar";
 import { Container } from "../../components/Container/Container";
+import { Footer } from "../../components/Footer/Footer";
 
 export const InfoEvento = ()=>{
 
@@ -234,9 +235,6 @@ export const InfoEvento = ()=>{
 
                     <GuestsTitle>Lista de Convidados</GuestsTitle>
 
-
-
-
                     <ListaConvidados>
 
                         {listGuests.length == 0 && 
@@ -261,6 +259,9 @@ export const InfoEvento = ()=>{
                     </ListaConvidados>
                 </BoxConvites>
             </PageWrapper>
+
+            <Footer/>
+            
         </Container>
     )
 }

@@ -2,16 +2,15 @@ import { CardPerfil } from "../../components/CardPerfil/CardPerfil"
 import { Container } from "../../components/Container/Container"
 import { Footer } from "../../components/Footer/Footer"
 import { NavBar } from "../../components/NavBar/NavBar"
-import "./Perfil.css"
+import { PerfilBox } from "./styled";
 
 export const Perfil = ()=>{
     return (
         <Container>
             <NavBar/>
-            <div className="boxPerfil">
-                <h2>Perfil</h2>
-                <CardPerfil></CardPerfil>    
-            </div>
+            <PerfilBox>
+                <CardPerfil/>    
+            </PerfilBox>
             <Footer/>
         </Container>
     )
