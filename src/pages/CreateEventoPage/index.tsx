@@ -3,12 +3,12 @@ import { useContext, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../../services/api";
 import {z} from "zod";
-import { PageCreateEvent, FormCreateEvento, DadosEvento, ErrorMessage } from "./styled";
+import { PageCreateEvent, FormCreateEvento, DadosEvento, ErrorMessage } from "./styles";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { InputField } from "../../components/InputField/InputField";
-import { Button } from "../../components/Button/Button";
-import { ContainerWrapper } from "../../components/Container/styled";
+import { InputField } from "../../components/InputField";
+import { Button } from "../../components/Button";
+import { ContainerWrapper } from "../../components/Container/styles";
 
 export const CreateEvento = ()=>{
 

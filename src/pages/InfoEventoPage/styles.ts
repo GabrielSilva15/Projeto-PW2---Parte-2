@@ -66,6 +66,10 @@ export const EditButton = styled.button`
 export const BoxConvites = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: rgba(85, 85, 85, 0.82);
+  border-radius: 2px;
+  padding: 10px;
   gap: 20px;
 `;
 
@@ -80,14 +84,18 @@ export const SearchInput = styled.input`
 
 export const BoxConvidados = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items:center;
   gap: 12px;
 `;
 
 export const ConvidadoWrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 12px;
+  background-color: rgba(122, 133, 193,0.82);
+  border-radius: 10px;
+  padding: 10px;
 `;
 
 export const ConviteButton = styled.button`
@@ -108,12 +116,15 @@ export const GuestsTitle = styled.h2`
   font-size: 18px;
   font-weight: 600;
   margin-top: 12px;
+  color: white;
 `;
 
 export const ListaConvidados = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 14px;
+  width: 100%;
+  flex-wrap: wrap;
 `;
 
 export const Convidado = styled.div`
@@ -145,5 +156,5 @@ export const PresencaStatus = styled.span`
 
 export const MensagemInfo = styled.p`
   font-size: 14px;
-  color: #6b7280;
+  color:rgb(255, 255, 255);
 `;

@@ -2,19 +2,20 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import {
   PageWrapper, CardEvento, EventoImage, DadosEvento, EventoTitle, EventoDate, EventoInfo, EditButton,
   BoxConvites, SearchInput, BoxConvidados, ConvidadoWrapper, ConviteButton, GuestsTitle, ListaConvidados,
-  Convidado, BoxPresenca, PresencaText, PresencaStatus, MensagemInfo } from "./styled";
+  Convidado, BoxPresenca, PresencaText, PresencaStatus, MensagemInfo } from "./styles";
 import { api } from "../../services/api";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { AuthProvider } from "../../contexts/Auth/AuthProvider";
 import { User } from "../../types/user";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Evento } from "../../types/evento";
-import { CardConvidadoEvento } from "../../components/CardConvidadosEvento/CardConvidadoEvento";
+import { CardConvidadoEvento } from "../../components/CardConvidadosEvento";
 import { FiEdit } from "react-icons/fi";
 import IconWrapper from "../../components/Icon";
-import { NavBar } from "../../components/NavBar/NavBar";
-import { Container } from "../../components/Container/Container";
-import { Footer } from "../../components/Footer/Footer";
+import { NavBar } from "../../components/NavBar";
+import { Container } from "../../components/Container";
+import { Footer } from "../../components/Footer";
+import { toast, ToastContainer } from "react-toastify";
 
 export const InfoEvento = ()=>{
 
@@ -170,7 +171,9 @@ export const InfoEvento = ()=>{
             getGuests()
             getUsersCanInvitations();
 
-        } catch (error) {
+        } catch (error:any) {
+
+            toast.error(error.response.data.error)
             console.log(error);
             
         }
@@ -262,6 +265,7 @@ export const InfoEvento = ()=>{
 
             <Footer/>
             
+            <ToastContainer/>
         </Container>
     )
 }

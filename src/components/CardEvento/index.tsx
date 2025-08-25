@@ -2,7 +2,7 @@ import { api } from "../../services/api"
 import { JSX, useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/Auth/AuthContext"
 import { Evento } from "../../types/evento"
-import { CardWrapper, DadosEvento, ImgEvento, HeadEvent, TitleEvent, AdressEvent, DateEvent } from "./styled";
+import { CardWrapper, DadosEvento, ImgEvento, HeadEvent, TitleEvent, AdressEvent, DateEvent } from "./styles";
 
 import { useNavigate } from "react-router-dom"
 import { MdRestoreFromTrash } from 'react-icons/md';

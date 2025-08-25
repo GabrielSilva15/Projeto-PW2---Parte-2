@@ -16,7 +16,8 @@ export const BoxLogin = styled.div`
   width: 100%;
   max-width: 420px;
 
-  background: #63e2c79f;
+  /* background: #63e2c79f; */
+  background-color: rgba(69, 177, 162, 0.84);
   padding: 2rem;
   border-radius: 16px;
 
@@ -24,7 +25,7 @@ export const BoxLogin = styled.div`
   flex-direction: column;
   gap: 1.5rem;
 
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.32);
 `;
 
 export const HeadLogin = styled.div`
@@ -73,11 +74,11 @@ export const FormLogin = styled.form`
 
   .textCadastre {
     font-size: 0.85rem;
-    color: #fffefeff;
+    color: black;
     text-align: center;
 
     .cadastreAqui {
-      color: #453bffff;
+      color: white;
       font-weight: bold;
       cursor: pointer;
 

@@ -92,7 +92,7 @@ export const TextCadastre = styled.span`
   margin-top: 0.5rem;
 
   .loginAqui {
-    color: #453bffff;
+    color: white;
     font-weight: 600;
     cursor: pointer;
 

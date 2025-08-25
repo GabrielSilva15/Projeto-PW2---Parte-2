@@ -3,11 +3,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "../../services/api";
-import { PageCadastro, BoxCadastro, HeadCadastro, SubtitleCadastro, FormCadastro, DadosCadastro, TextCadastre, Logo} from "./styled";
+import { PageCadastro, BoxCadastro, HeadCadastro, SubtitleCadastro, FormCadastro, DadosCadastro, TextCadastre, Logo} from "./styles";
 import logo from "../../Images/LOGO.png"
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../components/Button/Button";
-import { Container } from "../../components/Container/Container";
+import { Button } from "../../components/Button";
+import { Container } from "../../components/Container";
+import { toast, ToastContainer } from "react-toastify";
 
 
 export const CreateUser = ()=>{
@@ -41,11 +42,14 @@ export const CreateUser = ()=>{
                 password
             });
     
-            console.log("cadastro feiot ocm sucesso");
+            toast.success("Cadastro feito com sucesso");
             
+            setTimeout(()=>{
+                navigate("/login")
+            },3000)
     
-        } catch (error) {
-            console.log(error);
+        } catch (error:any) {
+            toast.error(error.response.data.error);
         }
     }
     
@@ -92,6 +96,7 @@ export const CreateUser = ()=>{
                 </FormCadastro>
             </BoxCadastro>
         </PageCadastro>
+        <ToastContainer/>
         </Container>
     )
 }

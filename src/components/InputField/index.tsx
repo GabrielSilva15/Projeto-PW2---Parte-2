@@ -1,6 +1,6 @@
 import { HtmlHTMLAttributes, InputHTMLAttributes } from "react";
-import { Button } from "../Button/Button";
-import { Input,Label} from "./styled";
+import { Button } from "../Button";
+import { Input,Label} from "./styles";
 
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {label?:string};
 

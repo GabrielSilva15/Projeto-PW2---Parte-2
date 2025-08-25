@@ -1,4 +1,4 @@
-import { BannerWrapper, BannerContent, BannerLogo, BannerText } from "./styled";
+import { BannerWrapper, BannerContent, BannerLogo, BannerText } from "./styles";
 import logo from "../../Images/LOGO.png";
 
 export const BannerWelcome = () => {

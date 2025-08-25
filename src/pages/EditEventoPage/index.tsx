@@ -6,13 +6,13 @@ import { Evento } from "../../types/evento";
 import {z} from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { PageEditEvent, FormEditEvento, DivImageEvent, DadosEvento, BtnRemoveEvent, Box, Popup } from "./styled";
+import { PageEditEvent, FormEditEvento, DivImageEvent, DadosEvento, BtnRemoveEvent, Box, Popup } from "./styles";
 import IconWrapper from "../../components/Icon";
 import { MdRestoreFromTrash } from "react-icons/md";
 import { FiCamera } from "react-icons/fi";
-import { Button } from "../../components/Button/Button";
-import { InputField } from "../../components/InputField/InputField";
-import { Container } from "../../components/Container/Container";
+import { Button } from "../../components/Button";
+import { InputField } from "../../components/InputField";
+import { Container } from "../../components/Container";
 
 export const EditEventPage = ()=>{
 

@@ -1,15 +1,18 @@
-import { Button } from "../../components/Button/Button";
+import { Button } from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { api } from "../../services/api";
-import { PageLogin, BoxLogin, HeadLogin, SubtitleLogin, FormLogin, Logo} from "./styled";
+import { PageLogin, BoxLogin, HeadLogin, SubtitleLogin, FormLogin, Logo} from "./styles";
 import logo from "../../Images/LOGO.png";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
-import { InputField } from "../../components/InputField/InputField";
-import { Container } from "../../components/Container/Container";
+import { InputField } from "../../components/InputField";
+import { Container } from "../../components/Container";
+import { ToastContainer,toast } from "react-toastify";
+
+
 
 const loginSchema = z.object({
   email: z.string(),
@@ -22,6 +25,7 @@ type LoginSchema = z.infer<typeof loginSchema>;
 
 export function Login() {
   const auth = useContext(AuthContext);
+  const [popupMensagem, setPopupMensagem] = useState<string | null>(null);
   const [loginError, setLoginError] = useState("");
 
   const navigate = useNavigate();
@@ -44,7 +48,7 @@ export function Login() {
       }
       throw Error("Credenciais incorretas. Tente novamente.")
     } catch (error) {
-      setLoginError("Credenciais incorretas. Tente novamente.");
+      toast.error("Credenciais incorretas. Tente novamente.");
     }
   }
 
@@ -102,12 +106,13 @@ export function Login() {
               e crie sua conta
             </span>
 
-            {loginError && <span className="errorMessage">{loginError}</span>}
+            <ToastContainer/>
 
-            {/* <Button name="Botao de enviar"/> */}
+
           </FormLogin>
         </BoxLogin>
       </PageLogin>
     </Container>
+    
   );
 }

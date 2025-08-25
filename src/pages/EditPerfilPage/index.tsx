@@ -1,5 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { PageEditUser, FormEditUser, DivImageUser, DadosUser } from "./styled";
+import { PageEditUser, FormEditUser, DivImageUser, DadosUser } from "./styles";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { api } from "../../services/api";
@@ -9,11 +9,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import IconWrapper from "../../components/Icon";
 import { FiCamera } from "react-icons/fi";
-import { Button } from "../../components/Button/Button";
-import { InputField } from "../../components/InputField/InputField";
-import { NavBar } from "../../components/NavBar/NavBar";
-import { Container } from "../../components/Container/Container";
-import { Footer } from "../../components/Footer/Footer";
+import { Button } from "../../components/Button";
+import { InputField } from "../../components/InputField";
+import { NavBar } from "../../components/NavBar";
+import { Container } from "../../components/Container";
+import { Footer } from "../../components/Footer";
 
 export const EditPerfil = ()=>{
 

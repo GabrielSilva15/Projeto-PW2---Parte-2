@@ -13,11 +13,17 @@ export const ConvitesPage = styled.div`
     font-size: 2rem;
     margin-bottom: 2rem;
     color: #fff;
+    background-color: rgba(33, 156, 140, 0.84);
+    padding: 30px 70px;
+    border-radius: 10px;
   }
 
   p {
     font-size: 25px;
     color: #ffffffff;
+    background-color: rgba(33, 156, 140, 0.84);
+    padding: 30px;
+    border-radius: 10px;
   }
 `;
 
@@ -37,6 +43,7 @@ export const ConviteCard = styled.div`
   #text-convite {
     font-size: 1.1rem;
     font-weight: 500;
+    color: #00b894;
   }
 
   #text-confirmacao {

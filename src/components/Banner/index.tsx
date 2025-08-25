@@ -1,4 +1,4 @@
-import { BannerWrapper, BannerContent, BannerLogo, BannerText, BannerButton, BannerSection } from "./styled";
+import { BannerWrapper, BannerContent, BannerLogo, BannerText, BannerButton, BannerSection } from "./styles";
 import logo from "../../Images/LOGO.png";
 import { useNavigate } from "react-router-dom";
 

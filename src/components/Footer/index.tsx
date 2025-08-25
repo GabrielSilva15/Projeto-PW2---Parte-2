@@ -1,5 +1,5 @@
 import { FaInstagram, FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
-import { FooterWrapper, FooterContent, SocialIcons, CopyRight } from "./styled";
+import { FooterWrapper, FooterContent, SocialIcons, CopyRight } from "./styles";
 
 export const Footer = () => {
   return (

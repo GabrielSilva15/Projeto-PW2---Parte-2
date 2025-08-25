@@ -4,7 +4,7 @@ import { AuthContext } from "../../contexts/Auth/AuthContext"
 import { AuthProvider } from "../../contexts/Auth/AuthProvider";
 import { User } from "../../types/user";
 
-import { ConvidadoWrapper, ConvidadoImage, ConvidadoNome } from "./styled";
+import { ConvidadoWrapper, ConvidadoImage, ConvidadoNome } from "./styles";
 
 
 export const CardConvidadoEvento = ({id}:{id:string})=>{

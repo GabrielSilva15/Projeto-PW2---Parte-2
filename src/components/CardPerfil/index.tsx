@@ -5,7 +5,7 @@ import { api } from "../../services/api";
 import IconWrapper from "../Icon";
 import { FiEdit, FiCamera } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { CardWrapper, EditButton, UserImage, DadosWrapper } from "./styled";
+import { CardWrapper, EditButton, UserImage, DadosWrapper } from "./styles";
 
 export const CardPerfil = ()=>{
 

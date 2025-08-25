@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const ConvidadoWrapper = styled.div`
   display: flex;
   align-items: center;
+  width: 180px;
+  height: 80px;
   gap: 12px;
 
   padding: 10px 14px;

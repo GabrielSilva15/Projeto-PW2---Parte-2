@@ -14,7 +14,8 @@ export const BannerWrapper = styled.section`
 `;
 
 export const BannerContent = styled.div`
-  background-color: rgba(122, 216, 203, 0.84);
+  /* background-color: rgba(122, 216, 203, 0.84); */
+  background-color: rgba(33, 156, 140, 0.84);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { ConvitesPage, ConviteCard, BtnsConvite, BtnAceitar } from "./styled";
+import { ConvitesPage, ConviteCard, BtnsConvite, BtnAceitar } from "./styles";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { api } from "../../services/api";
-import { NavBar } from "../../components/NavBar/NavBar";
-import { ContainerWrapper } from "../../components/Container/styled";
-import { Footer } from "../../components/Footer/Footer";
+import { NavBar } from "../../components/NavBar";
+import { ContainerWrapper } from "../../components/Container/styles";
+import { Footer } from "../../components/Footer";
 
 export const ConvitesUsuario = ()=>{
 

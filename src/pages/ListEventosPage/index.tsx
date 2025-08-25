@@ -1,4 +1,4 @@
-import { CardEvento } from "../../components/CardEvento/CardEvento";
+import { CardEvento } from "../../components/CardEvento";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { api } from "../../services/api";
@@ -9,9 +9,9 @@ import { ToastContainer,toast } from "react-toastify";
 import "./styled.css"
 import IconWrapper from "../../components/Icon";
 import { useNavigate } from "react-router-dom";
-import { NavBar } from "../../components/NavBar/NavBar";
-import { Container } from "../../components/Container/Container";
-import { Footer } from "../../components/Footer/Footer";
+import { NavBar } from "../../components/NavBar";
+import { Container } from "../../components/Container";
+import { Footer } from "../../components/Footer";
 
 export const Eventos = ()=>{
 
@@ -71,10 +71,11 @@ export const Eventos = ()=>{
                     </ul>
                 }
 
-                <ToastContainer/>
 
             </div>
             <Footer/>
+            
+            <ToastContainer/>
         
         </Container>
     )
